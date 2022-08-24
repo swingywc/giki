@@ -4,7 +4,7 @@ import { ObjectType } from '@Types';
 let screenNames: ObjectType = {};
 
 screenNames = {
-  DRAWER: 'Drawer',
+  // DRAWER: 'Drawer',
   HOME: 'Home',
   NAME: 'Main'
 };
