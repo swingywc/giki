@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { SCREENS } from './ScreenPairings';
@@ -36,14 +37,16 @@ export const AppNavigator = () => {
   // const { user } = useContext(UserContext);
 
   return (
-    <NavigationContainer>
-      <App.Navigator screenOptions={{ headerShown: false }}>
-        {/*(user !== null) ?
-          (<App.Screen name={SCREEN_NAMES.NAME} component={MainNavigator} />) :
-          (<App.Screen name={SCREEN_NAMES.AUTH.NAME} component={AuthNavigator} />)
-        */}
-        <App.Screen name={SCREEN_NAMES.NAME} component={MainNavigator} />
-      </App.Navigator>
-    </NavigationContainer>
+    <SafeAreaProvider>
+      <NavigationContainer>
+        <App.Navigator screenOptions={{ headerShown: false }}>
+          {/*(user !== null) ?
+            (<App.Screen name={SCREEN_NAMES.NAME} component={MainNavigator} />) :
+            (<App.Screen name={SCREEN_NAMES.AUTH.NAME} component={AuthNavigator} />)
+          */}
+          <App.Screen name={SCREEN_NAMES.NAME} component={MainNavigator} />
+        </App.Navigator>
+      </NavigationContainer>
+    </SafeAreaProvider>
   );
 };
